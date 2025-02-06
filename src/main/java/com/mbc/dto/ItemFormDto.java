@@ -7,9 +7,7 @@ import com.mbc.entity.Member;
 import com.mbc.validation.TradeLocationValid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
@@ -17,6 +15,9 @@ import java.util.List;
 
 @Getter @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @TradeLocationValid // 커스텀 유효성 검사 어노테이션 추가
 public class ItemFormDto {
 
@@ -34,6 +35,7 @@ public class ItemFormDto {
     @NotNull(message = "재고수량은 필수 입력 값입니다.")
     private Integer stockNumber;
 
+    @Builder.Default
     private ItemSellStatus itemSellStatus = ItemSellStatus.SELL;
 
     @NotNull(message = "상품상태는 필수 입력 값입니다.")
@@ -50,6 +52,7 @@ public class ItemFormDto {
     @NotNull(message = "배송비 설정은 필수 입력 값입니다.")
     public String shipping; // 배송
 
+    @Builder.Default
     public Integer shippingPrice=0; //배송비
 
     @NotNull(message = "직거래 가능여부는 필수 입력 값입니다.")
@@ -60,6 +63,7 @@ public class ItemFormDto {
 
     private String userName; // 상품을 등록한 유저의 이름
 
+    @Builder.Default
     private List<ItemImgDto> itemImgDtoList = new ArrayList<>();
 
     private Long memberId; // member_id 추가

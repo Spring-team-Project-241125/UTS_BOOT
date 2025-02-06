@@ -19,4 +19,14 @@ public class OrderDto {
     // 결제 정보
     String impUid;  // 아임포트 결제 uid
     String merchantUid;  // 주문 번호
+
+    // 기본 생성자 추가
+    public OrderDto() {
+    }
+
+    // 파라미터를 받는 생성자
+    public OrderDto(Long itemId, int count) {
+        this.itemId = itemId;
+        this.count = count;
+    }
 }

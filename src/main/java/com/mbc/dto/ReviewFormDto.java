@@ -2,9 +2,7 @@ package com.mbc.dto;
 
 
 import com.mbc.entity.Review;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,6 +11,9 @@ import java.util.List;
 
 @Getter @Setter
 @ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReviewFormDto {
 
     private Long id;
@@ -29,7 +30,9 @@ public class ReviewFormDto {
 
     private Long orderId; // 주문 ID 추가
 
+    @Builder.Default
     private List<ReviewImgDto> reviewImgDtoList = new ArrayList<>();
 
+    @Builder.Default
     private List<MultipartFile> reviewImgs = new ArrayList<>();  // 업로드된 이미지 파일 리스트 추가
 }
