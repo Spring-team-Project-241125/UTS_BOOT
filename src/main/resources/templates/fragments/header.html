@@ -28,8 +28,10 @@
 <!--                        <a class="nav-link" href="/orders">구매이력</a>-->
 <!--                    </li>-->
                     <li class="navbar-text me-5" sec:authorize="isAuthenticated()">
-                        <span th:text=" ${#authentication.principal.username} + '님 환영합니다.'"></span>
+                        <span th:text="${#authentication.principal.username} + '님 환영합니다.'"></span>
+                        <a th:href="@{/recommend/{memberId}(memberId=${memberId})}">추천 보기</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/member/item/new"><i class="fa-solid fa-cash-register"></i> 판매하기</a>
                     </li>

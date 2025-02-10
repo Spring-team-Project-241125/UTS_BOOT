@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>추천 목록</title>
+</head>
+<body>
+<h1>추천 목록</h1>
+
+<!-- 추천 목록을 테이블 형태로 표시 -->
+<table border="1">
+    <thead>
+    <tr>
+        <th>아이템 ID</th>
+        <th>아이템 이름</th>
+        <th>점수</th>
+        <th>이미지</th> <!-- 이미지 추가 -->
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 모델에서 추천 항목을 가져와서 테이블에 표시 -->
+    <tr th:each="recommendation : ${recommendations}">
+        <td th:text="${recommendation.id}">아이템 ID</td>
+        <td th:text="${recommendation.name}">아이템 이름</td>
+        <td th:text="${recommendation.score}">점수</td>
+        <td>
+            <img th:src="${recommendation.img_url}" alt="상품 이미지" width="100"> <!-- 이미지 표시 -->
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
